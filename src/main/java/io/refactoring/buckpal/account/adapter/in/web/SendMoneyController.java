@@ -1,4 +1,4 @@
-package io.refactoring.buckpal.account.adapter.in;
+package io.refactoring.buckpal.account.adapter.in.web;
 
 import io.refactoring.buckpal.account.application.port.in.SendMoneyCommand;
 import io.refactoring.buckpal.account.application.port.in.SendMoneyUseCase;

@@ -64,9 +64,10 @@ public class SendMoneyService implements SendMoneyUseCase {
         return true;
     }
 
-    @Override
-    public boolean sendMoney(SendMoneyCommand command) {
-        // TODO: 비즈니스 규칙 검증
-        // TODO: 모델 상태 조작
+    private void checkThreshold(SendMoneyCommand command) {
+        if(command.getMoney().isGreaterThan(moneyTransferProperties.getMaximumTransferThreshold())){
+            throw new ThresholdExceededException(moneyTransferProperties.getMaximumTransferThreshold(), command.getMoney());
+        }
     }
+
 }
